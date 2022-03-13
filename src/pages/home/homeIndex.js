@@ -45,6 +45,7 @@ export default function Homeindex() {
     <>
       <Head>
         <title>{title}</title>
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
       </Head>
       <div
         className={`md:container md:mx-auto mx-auto px-4 py-4 `}
