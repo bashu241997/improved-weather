@@ -40,14 +40,18 @@ export default function Homeindex() {
       setLatlong([]);
     }
   };
-  console.log(State);
+  let hour = new Date().toLocaleTimeString([], {
+    hour12: false,
+  }).split(":")[0]
+  console.log(new Date().getTime());
   return (
     <>
       <Head>
         <title>{title}</title>
         <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" /> 
        </Head>
-      <div
+       <img src={`${hour <= 12 ? '/sunrise.jpg' : hour <= 19 ? '/sunset.jpg' : '/night.jpg' }`} className="fixed h-full w-full z-[-10] blur-sm brightness-75" />
+      <div 
         className={`md:container md:mx-auto mx-auto px-4 py-4 `}
         style={{ minHeight: "90vh" }}
       >
@@ -61,7 +65,7 @@ export default function Homeindex() {
             <form className="px-6 w-full capitalize rounded-md border border-t-0 border-r-0 border-l-0 flex">
               <input
                 type="text"
-                className="bg-transparent uppercase text-sm outline-0 rounded-lg w-full px-2 py-1.5"
+                className="placeholder:text-slate-400 bg-transparent uppercase text-sm outline-0 rounded-lg w-full px-2 py-1.5"
                 placeholder="Search Wether in Your City | Enter Your City Name"
                 onChange={(e) => states(e)}
               />
