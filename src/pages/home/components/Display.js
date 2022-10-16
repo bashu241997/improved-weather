@@ -20,12 +20,12 @@ export default function Display({ data, name }) {
           return (
             <div
               key={i}
-              className={`rounded-md shadow-lg shadow-blue-500/50 ${styles.hoverer}`}
+              className={`min-w-[150px] min-h-[200px] text-center scale-100 border-slate-300 border-2 hover:scale-110 duration-300 m-3 p-3 rounded-md shadow-lg`}
             >
-              <p className="text-sm pb-2">
+              <p className="text-sm text-center font-bold pb-2">
                 {date} {date1}
               </p>
-              <img src={img} />
+              <div><img src={img} /></div>
               <div className="capitalize text-lg pb-2">
                 {feels_like.day} &#8451;
               </div>
@@ -81,9 +81,9 @@ export default function Display({ data, name }) {
         </div>
       </div>
       <div className="px-3 ">
-        <div className="text-xl font-semibold p-3">Daily</div>
+        <div className="text-xl font-semibold pb-3">Daily</div>
         <div
-          className={`flex overflow-x-auto flex-row justify-between capitalize ${styles.cscroller}`}
+          className={`flex rounded px-2 capitalize overflow-x-scroll py-4`}
         >
           {Weekdata}
         </div>

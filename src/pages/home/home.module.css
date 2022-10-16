@@ -10,17 +10,6 @@
     backdrop-filter: blur(10px);
     background-color: #ffffffb8;
 }
-.hoverer{
-    width: 130px;
-    background: #fff;
-    padding: 15px;
-    margin: 15px;
-}
-.hoverer:hover{
-    transform: scale(1.1);
-    -webkit-backdrop-filter: blur(24px);
-    backdrop-filter: blur(24px);
-}
 .cscroller::-webkit-scrollbar {
     height: 4px;              /* height of horizontal scrollbar ← You're missing this */
     width: 4px;               /* width of vertical scrollbar */
