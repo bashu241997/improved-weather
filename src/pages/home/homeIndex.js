@@ -50,7 +50,7 @@ export default function Homeindex() {
         <title>{title}</title>
         <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" /> 
        </Head>
-       <img src={`${hour <= 12 ? '/sunrise.jpg' : hour <= 19 ? '/sunset.jpg' : '/night.jpg' }`} className="fixed h-full w-full z-[-10] blur-sm brightness-75" />
+       <img src={`${hour <= 12 ? '/sunrise.png' : hour <= 19 ? '/sunset.png' : '/night.png' }`} className="fixed h-full w-full z-[-10] brightness-75" />
       <div 
         className={`md:container md:mx-auto mx-auto px-4 py-4 `}
         style={{ minHeight: "90vh" }}
