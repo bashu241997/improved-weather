@@ -21,9 +21,9 @@ export default function Homeindex() {
     getdatadetails(dat);
   }, []);
   const states = (e) => {
-    if (e.target.value.length > 0) {
+    if (e.target.value.length > 1) {
       gettdetails(api.location(e.target.value)).then((lat) => setLatlong(lat));
-    } else if (e.target.value.length < 1) {
+    } else if (e.target.value.length <= 1) {
       setLatlong([]);
     }
   };
@@ -36,14 +36,13 @@ export default function Homeindex() {
         setLatlong([]);
       });
     } else {
-      console.log("");
       setLatlong([]);
     }
   };
   let hour = new Date().toLocaleTimeString([], {
     hour12: false,
   }).split(":")[0]
-  console.log(new Date().getTime());
+
   return (
     <>
       <Head>
@@ -52,7 +51,7 @@ export default function Homeindex() {
        </Head>
        <img src={`${hour <= 12 ? '/sunrise.png' : hour <= 19 ? '/sunset.png' : '/night.png' }`} className="fixed h-full w-full z-[-10] brightness-75" />
       <div 
-        className={`md:container md:mx-auto mx-auto px-4 py-4 `}
+        className={`backdrop-blur-lg md:container md:mx-auto mx-auto px-4 py-4 `}
         style={{ minHeight: "90vh" }}
       >
         <div className="p-4 sm:flex items-start">
@@ -65,14 +64,14 @@ export default function Homeindex() {
             <form className="px-6 w-full capitalize rounded-md border border-t-0 border-r-0 border-l-0 flex">
               <input
                 type="text"
-                className="placeholder:text-slate-400 bg-transparent uppercase text-sm outline-0 rounded-lg w-full px-2 py-1.5"
+                className="placeholder:text-slate-100 outline-none bg-transparent uppercase text-sm outline-0 rounded-lg w-full px-2 py-1.5"
                 placeholder="Search Wether in Your City | Enter Your City Name"
                 onChange={(e) => states(e)}
               />
-              <img src="https://img.icons8.com/ios-filled/50/000000/search--v1.png" style={{ width: "20px !important", height: "20px !important" }}/>
+              <img className="cursor-pointer" src="./d.png" style={{ width: "20px !important", height: "20px !important" }}/>
             </form>
             <div
-              className={`px-2 w-full shadow-md shadow-blue-200/50 absolute ${styles.glass1} overflow-auto`}
+              className={`px-2 w-full shadow-md absolute ${styles.glass1} overflow-auto`}
             >
               {latlong &&
                 latlong.length > 0 &&
@@ -93,7 +92,7 @@ export default function Homeindex() {
 
         <Display data={Data} name={State} />
       </div>
-      <div className="text-sm text-center py-4 bottom-8 w-full">
+      <div className=" backdrop-blur-lg text-sm text-center py-4 bottom-8 w-full">
         {new Date().getFullYear()} | &#9400; Baswanth | All Rights Reserved
       </div>
     </>
